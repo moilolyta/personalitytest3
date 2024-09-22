@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Big Five Personality Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .result { margin: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        h2 { color: #2c3e50; }
+        p { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Your Big Five Personality Results</h1>
+
+    <div class="result">
+        <h2>Openness to Experience</h2>
+        <p><strong>Score: </strong><span id="openness">8</span></p>
+        <p>If you scored high in Openness, you are likely curious and creative, embracing new experiences and ideas.</p>
+    </div>
+
+    <div class="result">
+        <h2>Conscientiousness</h2>
+        <p><strong>Score: </strong><span id="conscientiousness">6</span></p>
+        <p>High scores indicate you are organized and responsible, showing discipline and reliability in your tasks.</p>
+    </div>
+
+    <div class="result">
+        <h2>Extraversion</h2>
+        <p><strong>Score: </strong><span id="extraversion">7</span></p>
+        <p>Those scoring high in Extraversion tend to be outgoing and energetic, enjoying social interactions.</p>
+    </div>
+
+    <div class="result">
+        <h2>Agreeableness</h2>
+        <p><strong>Score: </strong><span id="agreeableness">9</span></p>
+        <p>High Agreeableness reflects kindness and empathy, indicating you care about the well-being of others.</p>
+    </div>
+
+    <div class="result">
+        <h2>Neuroticism</h2>
+        <p><strong>Score: </strong><span id="neuroticism">4</span></p>
+        <p>High scores in Neuroticism suggest you may experience emotions like anxiety or irritability more frequently.</p>
+    </div>
+
+    <script>
+        // Replace the scores below with actual scores from your quiz
+        const scores = {
+            openness: 8,
+            conscientiousness: 6,
+            extraversion: 7,
+            agreeableness: 9,
+            neuroticism: 4
+        };
+
+        document.getElementById('openness').textContent = scores.openness;
+        document.getElementById('conscientiousness').textContent = scores.conscientiousness;
+        document.getElementById('extraversion').textContent = scores.extraversion;
+        document.getElementById('agreeableness').textContent = scores.agreeableness;
+        document.getElementById('neuroticism').textContent = scores.neuroticism;
+    </script>
+</body>
+</html>

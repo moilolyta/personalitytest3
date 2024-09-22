@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brain Type Result</title>
+</head>
+<body>
+    <h1>Your Brain Type</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Analytical': 0, 'Intuitive': 0, 'Creative': 0, 'Practical': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Analytical']++;
+                            break;
+                        case 'b':
+                            scores['Intuitive']++;
+                            break;
+                        case 'c':
+                            scores['Creative']++;
+                            break;
+                        case 'd':
+                            scores['Practical']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(type) {
+            const descriptions = {
+                'Analytical': "You have a logical mind and prefer structure in your life.",
+                'Intuitive': "You trust your instincts and make decisions based on feelings.",
+                'Creative': "You are imaginative and thrive in artistic environments.",
+                'Practical': "You are grounded and prefer to stick to tried-and-true methods."
+            };
+            return descriptions[type];
+        }
+    </script>
+</body>
+</html>

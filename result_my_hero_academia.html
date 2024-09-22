@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-scale=1.0">
+    <title>Your My Hero Academia Character</title>
+</head>
+<body>
+    <h1>Your My Hero Academia Character</h1>
+    <div id="result"></div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let score = {};
+        
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            score[answer] = (score[answer] || 0) + 1;
+        }
+
+        let character;
+        const maxScore = Math.max(...Object.values(score));
+        const topAnswers = Object.keys(score).filter(key => score[key] === maxScore);
+
+        if (topAnswers.includes('a')) character = "Izuku Midoriya: Determined and courageous, always aspiring to be the number one hero.";
+        else if (topAnswers.includes('b')) character = "Shoto Todoroki: Calm and collected, with a powerful duality in abilities.";
+        else if (topAnswers.includes('c')) character = "Ochaco Uraraka: Compassionate and optimistic, striving to support those in need.";
+        else if (topAnswers.includes('d')) character = "Katsuki Bakugo: Fierce and relentless, always pushing to be the best.";
+        else character = "All Might: The symbol of peace, embodying strength and hope for all heroes.";
+
+        document.getElementById('result').innerText = `You are: ${character}`;
+    </script>
+</body>
+</html>

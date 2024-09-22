@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Assertiveness Results</title>
+    <script>
+        function calculateResult() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let score = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                score += parseInt(urlParams.get(`question_${i}`));
+            }
+
+            let result = '';
+            if (score <= 20) {
+                result = "Low Assertiveness: You may struggle to express your needs and opinions.";
+            } else if (score <= 35) {
+                result = "Moderate Assertiveness: You are somewhat comfortable expressing yourself but may still avoid conflict.";
+            } else if (score <= 50) {
+                result = "High Assertiveness: You confidently express your thoughts and stand up for yourself.";
+            } else {
+                result = "Assertive Communicator: You balance being assertive with being a good listener.";
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</head>
+<body onload="calculateResult()">
+    <h1>Your Assertiveness Results</h1>
+    <p id="result"></p>
+</body>
+</html>

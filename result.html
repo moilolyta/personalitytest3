@@ -1,0 +1,45 @@
+---
+layout: default
+
+---
+
+<h1>Your Shameless Character</h1>
+<div id="result"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const answers = {
+            'Frank Gallagher': ['a', 'b', 'd', 'b', 'a', 'd', 'a', 'c', 'd', 'a'],
+            'Fiona Gallagher': ['b', 'c', 'a', 'c', 'b', 'c', 'b', 'a', 'b', 'b'],
+            'Lip Gallagher': ['c', 'd', 'b', 'd', 'c', 'a', 'd', 'd', 'c', 'c'],
+            'Debbie Gallagher': ['d', 'a', 'c', 'a', 'd', 'b', 'c', 'b', 'a', 'd']
+        };
+        const scores = { 'Frank Gallagher': 0, 'Fiona Gallagher': 0, 'Lip Gallagher': 0, 'Debbie Gallagher': 0 };
+
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) {
+                for (const [character, preferredAnswers] of Object.entries(answers)) {
+                    if (answer === preferredAnswers[i - 1]) {
+                        scores[character]++;
+                    }
+                }
+            }
+        }
+
+        const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        const description = getDescription(result);
+        document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+    });
+
+    function getDescription(character) {
+        const descriptions = {
+            'Frank Gallagher': "Frank is resourceful, reckless, and has a strong survival instinct.",
+            'Fiona Gallagher': "Fiona is resilient, hardworking, and often acts as the backbone of the family.",
+            'Lip Gallagher': "Lip is intelligent and ambitious, but often struggles with inner conflicts.",
+            'Debbie Gallagher': "Debbie is determined, strong-willed, and fiercely loyal to her family."
+        };
+        return descriptions[character];
+    }
+</script>

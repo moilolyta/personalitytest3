@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Game of Thrones Character</title>
+</head>
+<body>
+    <h1>Your Game of Thrones Character</h1>
+    <p id="result"></p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const scores = { 'Jon Snow': 0, 'Daenerys Targaryen': 0, 'Tyrion Lannister': 0, 'Cersei Lannister': 0, 'Arya Stark': 0, 'Sansa Stark': 0 };
+
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) {
+                switch (answer) {
+                    case 'a': scores['Jon Snow']++; break;
+                    case 'b': scores['Daenerys Targaryen']++; break;
+                    case 'c': scores['Tyrion Lannister']++; break;
+                    case 'd': scores['Cersei Lannister']++; break;
+                    case 'e': scores['Arya Stark']++; break;
+                    case 'f': scores['Sansa Stark']++; break;
+                }
+            }
+        }
+
+        const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        
+        const descriptions = {
+            'Jon Snow': "You are Jon Snow! A born leader with a strong sense of justice.",
+            'Daenerys Targaryen': "You are Daenerys Targaryen! Ambitious, determined, and a fighter.",
+            'Tyrion Lannister': "You are Tyrion Lannister! Intelligent, witty, and always two steps ahead.",
+            'Cersei Lannister': "You are Cersei Lannister! Cunning, strategic, and fiercely protective.",
+            'Arya Stark': "You are Arya Stark! Brave, independent, and always seeking adventure.",
+            'Sansa Stark': "You are Sansa Stark! Strong-willed, intelligent, and a true survivor."
+        };
+
+        document.getElementById('result').innerText = descriptions[result];
+    </script>
+</body>
+</html>

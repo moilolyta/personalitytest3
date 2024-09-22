@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Color Palette Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <h1>Your Color Palette</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const answers = {
+                question_1: urlParams.get("question_1"),
+                question_2: urlParams.get("question_2"),
+                question_3: urlParams.get("question_3"),
+                question_4: urlParams.get("question_4"),
+                question_5: urlParams.get("question_5"),
+                question_6: urlParams.get("question_6"),
+            };
+
+            const result = getColorPalette(answers);
+            document.getElementById('result').innerHTML = `
+                <h2>You are a: <strong>${result.palette}</strong></h2>
+                <p>${result.description}</p>
+                <a href="/armocromia_test.html">Take the test again</a>
+            `;
+        });
+
+        function getColorPalette(answers) {
+            const colorPalettes = {
+                'Summer': "You have a cool undertone with light hair. Your best colors are soft pastels and cool shades.",
+                'Winter': "You have a cool undertone with dark hair. Your best colors are bold, vivid shades and jewel tones.",
+                'Autumn': "You have a warm undertone with rich hair colors. Your best colors are earthy tones and warm hues.",
+                'Spring': "You have a warm undertone with light hair. Your best colors are clear, bright colors and vibrant pastels."
+            };
+
+            let palette = '';
+
+            if ((answers.question_1 === 'a' || answers.question_1 === 'b') && (answers.question_2 === 'a' || answers.question_2 === 'b')) {
+                palette = 'Summer';
+            } else if ((answers.question_1 === 'c' || answers.question_1 === 'd') && (answers.question_2 === 'c' || answers.question_2 === 'd')) {
+                palette = 'Winter';
+            } else if (answers.question_3 === 'a' && answers.question_5 === 'a') {
+                palette = 'Autumn';
+            } else if (answers.question_4 === 'a' && answers.question_6 === 'a') {
+                palette = 'Spring';
+            }
+
+            return {
+                palette,
+                description: colorPalettes[palette] || "Your color palette is unique! Explore various shades to find what works for you."
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-scale=1.0">
+    <title>Your Jujutsu Kaisen Character</title>
+</head>
+<body>
+    <h1>Your Jujutsu Kaisen Character</h1>
+    <div id="result"></div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let score = {};
+        
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            score[answer] = (score[answer] || 0) + 1;
+        }
+
+        let character;
+        const maxScore = Math.max(...Object.values(score));
+        const topAnswers = Object.keys(score).filter(key => score[key] === maxScore);
+
+        if (topAnswers.includes('a')) character = "Yuji Itadori: Brave and determined, always ready to confront challenges head-on.";
+        else if (topAnswers.includes('b')) character = "Megumi Fushiguro: Wise and strategic, values loyalty and friendship.";
+        else if (topAnswers.includes('c')) character = "Nobara Kugisaki: Strong-willed and fiercely protective of her loved ones.";
+        else if (topAnswers.includes('d')) character = "Satoru Gojo: Charismatic and mysterious, often hiding his true strength.";
+        else character = "Ryomen Sukuna: A powerful force, feared and respected for his dark abilities.";
+
+        document.getElementById('result').innerText = `You are: ${character}`;
+    </script>
+</body>
+</html>

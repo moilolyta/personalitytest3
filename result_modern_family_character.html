@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Modern Family Character Result</title>
+</head>
+<body>
+    <h1>Your Modern Family Character Result</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Get the user's responses
+            let answers = '';
+            for (let i = 1; i <= 8; i++) {
+                answers += urlParams.get('question_' + i);
+            }
+
+            // Determine character
+            let character = getCharacter(answers);
+
+            // Display result
+            document.getElementById('result').innerText = "You are " + character + "!";
+            document.getElementById('result').innerHTML += "<p>" + getCharacterDescription(character) + "</p>";
+        });
+
+        function getCharacter(answers) {
+            const phil = /a/g;
+            const claire = /b/g;
+            const gloria = /c/g;
+            const jay = /d/g;
+            const mitchell = /e/g;
+            const cam = /f/g;
+
+            if ((answers.match(phil) || []).length > 4) {
+                return "Phil Dunphy";
+            } else if ((answers.match(claire) || []).length > 4) {
+                return "Claire Dunphy";
+            } else if ((answers.match(gloria) || []).length > 4) {
+                return "Gloria Delgado-Pritchett";
+            } else if ((answers.match(jay) || []).length > 4) {
+                return "Jay Pritchett";
+            } else if ((answers.match(mitchell) || []).length > 4) {
+                return "Mitchell Pritchett";
+            } else {
+                return "Cam Tucker";
+            }
+        }
+
+        function getCharacterDescription(character) {
+            const descriptions = {
+                'Phil Dunphy': "You're fun, enthusiastic, and always looking on the bright side.",
+                'Claire Dunphy': "You're organized, responsible, and a natural leader.",
+                'Gloria Delgado-Pritchett': "You're passionate, fiercely protective, and always looking glamorous.",
+                'Jay Pritchett': "You're traditional, wise, and know how to stay cool under pressure.",
+                'Mitchell Pritchett': "You're thoughtful, open-minded, and like things to be fair and balanced.",
+                'Cam Tucker': "You're fun-loving, dramatic, and love to spread joy wherever you go."
+            };
+            return descriptions[character] || "An intriguing enigma!";
+        }
+    </script>
+</body>
+</html>

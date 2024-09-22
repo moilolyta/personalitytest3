@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Socializing Style</title>
+</head>
+<body>
+    <h1>Your Socializing Style</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = {
+                "Life of the Party": 0,
+                "Social Butterfly": 0,
+                "Casual Conversationalist": 0,
+                "Lone Wolf": 0
+            };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores["Life of the Party"]++;
+                            break;
+                        case 'b':
+                            scores["Social Butterfly"]++;
+                            break;
+                        case 'c':
+                            scores["Casual Conversationalist"]++;
+                            break;
+                        case 'd':
+                            scores["Lone Wolf"]++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are a: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(style) {
+            const descriptions = {
+                "Life of the Party": "You thrive in social settings and love being around others!",
+                "Social Butterfly": "You enjoy mingling but also value your alone time.",
+                "Casual Conversationalist": "You prefer meaningful conversations with close friends.",
+                "Lone Wolf": "You cherish your solitude and prefer to socialize in small doses."
+            };
+            return descriptions[style];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Result</title>
+</head>
+<body>
+    <h1>Your Result</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Brat': 0, 'Demure': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    if (answer === 'a') {
+                        scores['Brat']++;
+                    } else {
+                        scores['Demure']++;
+                    }
+                }
+            }
+
+            const result = scores['Brat'] > scores['Demure'] ? 'Brat' : 'Demure';
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(type) {
+            const descriptions = {
+                'Brat': "You're bold and adventurous, always ready to take on new challenges.",
+                'Demure': "You're elegant and reserved, valuing depth and meaningful connections."
+            };
+            return descriptions[type];
+        }
+    </script>
+</body>
+</html>

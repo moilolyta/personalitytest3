@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Enneagram Type</title>
+</head>
+<body>
+    <h1>Your Enneagram Type</h1>
+    <div id="result"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const responses = {
+            type1: 0, // The Reformer
+            type2: 0, // The Helper
+            type3: 0, // The Achiever
+            type4: 0, // The Individualist
+            type5: 0  // The Investigator
+        };
+
+        // Count responses
+        for (let i = 1; i <= 5; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) responses[`type${answer}`]++;
+        }
+
+        // Determine the dominant type
+        const dominantType = Object.keys(responses).reduce((a, b) => responses[a] > responses[b] ? a : b);
+
+        // Display results
+        const resultText = {
+            type1: "You are a Reformer. You strive for perfection and have a strong sense of right and wrong.",
+            type2: "You are a Helper. You are caring, interpersonal, and motivated by the needs of others.",
+            type3: "You are an Achiever. You are success-oriented and driven to achieve your goals.",
+            type4: "You are an Individualist. You are sensitive and introspective, valuing individuality.",
+            type5: "You are an Investigator. You are insightful and curious, seeking knowledge and understanding."
+        };
+
+        document.getElementById("result").innerText = resultText[dominantType];
+    </script>
+</body>
+</html>

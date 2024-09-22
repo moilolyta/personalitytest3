@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Aura Color Result</title>
+</head>
+<body>
+    <h1>Your Aura Color</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Red': 0, 'Blue': 0, 'Green': 0, 'Yellow': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Red']++;
+                            break;
+                        case 'b':
+                            scores['Blue']++;
+                            break;
+                        case 'c':
+                            scores['Green']++;
+                            break;
+                        case 'd':
+                            scores['Yellow']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>Your aura color is: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(color) {
+            const descriptions = {
+                'Red': "You are passionate, driven, and always ready to take on a challenge.",
+                'Blue': "You are calm, empathetic, and you thrive in peaceful environments.",
+                'Green': "You are grounded, love nature, and enjoy nurturing those around you.",
+                'Yellow': "You are joyful, creative, and full of positive energy."
+            };
+            return descriptions[color];
+        }
+    </script>
+</body>
+</html>
+

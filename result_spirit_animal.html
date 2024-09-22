@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Spirit Animal Result</title>
+</head>
+<body>
+    <h1>Your Spirit Animal</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Wolf': 0, 'Dolphin': 0, 'Bear': 0, 'Eagle': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Wolf']++;
+                            break;
+                        case 'b':
+                            scores['Dolphin']++;
+                            break;
+                        case 'c':
+                            scores['Bear']++;
+                            break;
+                        case 'd':
+                            scores['Eagle']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>Your spirit animal is: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(animal) {
+            const descriptions = {
+                'Wolf': "You are independent, strong, and protective of those you love.",
+                'Dolphin': "You are social, playful, and highly intelligent.",
+                'Bear': "You are strong, nurturing, and resilient in difficult situations.",
+                'Eagle': "You are bold, free-spirited, and always looking for the next adventure."
+            };
+            return descriptions[animal];
+        }
+    </script>
+</body>
+</html>

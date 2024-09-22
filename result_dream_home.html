@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dream Home Result</title>
+</head>
+<body>
+    <h1>Your Dream Home</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = {
+                "Cozy Cottage": 0,
+                "Modern Apartment": 0,
+                "Rustic Farmhouse": 0,
+                "Beach House": 0,
+                "Luxury Mansion": 0,
+                "Eclectic Bungalow": 0
+            };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores["Cozy Cottage"]++;
+                            break;
+                        case 'b':
+                            scores["Modern Apartment"]++;
+                            break;
+                        case 'c':
+                            scores["Rustic Farmhouse"]++;
+                            break;
+                        case 'd':
+                            scores["Beach House"]++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are best suited for: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(home) {
+            const descriptions = {
+                "Cozy Cottage": "You value warmth and comfort. A cozy cottage surrounded by nature is your ideal retreat.",
+                "Modern Apartment": "You love the city life and appreciate sleek, modern designs.",
+                "Rustic Farmhouse": "You cherish tradition and simplicity, finding beauty in the rustic.",
+                "Beach House": "You thrive in sunny, carefree environments, with a view of the ocean.",
+                "Luxury Mansion": "You desire space and opulence, loving everything extravagant.",
+                "Eclectic Bungalow": "You have a unique style and love mixing different elements in your home."
+            };
+            return descriptions[home];
+        }
+    </script>
+</body>
+</html>

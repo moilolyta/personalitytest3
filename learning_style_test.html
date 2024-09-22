@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Style Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; text-align: center; }
+        input { margin: 10px; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learning Style Test</h1>
+        <form id="quiz-form">
+            <fieldset>
+                <legend>1. How do you prefer to learn new information?</legend>
+                <label><input type="radio" name="question_1" value="a" required> Through reading.</label><br>
+                <label><input type="radio" name="question_1" value="b"> By listening to lectures.</label><br>
+                <label><input type="radio" name="question_1" value="c"> Through hands-on practice.</label><br>
+                <label><input type="radio" name="question_1" value="d"> By discussing with others.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>2. In group projects, you are usually:</legend>
+                <label><input type="radio" name="question_2" value="a" required> The organizer.</label><br>
+                <label><input type="radio" name="question_2" value="b"> The researcher.</label><br>
+                <label><input type="radio" name="question_2" value="c"> The presenter.</label><br>
+                <label><input type="radio" name="question_2" value="d"> The one who takes notes.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>3. When you have to memorize something, you:</legend>
+                <label><input type="radio" name="question_3" value="a" required> Write it down.</label><br>
+                <label><input type="radio" name="question_3" value="b"> Repeat it out loud.</label><br>
+                <label><input type="radio" name="question_3" value="c"> Use visual aids.</label><br>
+                <label><input type="radio" name="question_3" value="d"> Create a song or rhyme.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>4. Your ideal study environment is:</legend>
+                <label><input type="radio" name="question_4" value="a" required> Quiet and isolated.</label><br>
+                <label><input type="radio" name="question_4" value="b"> With some background noise.</label><br>
+                <label><input type="radio" name="question_4" value="c"> In a group setting.</label><br>
+                <label><input type="radio" name="question_4" value="d"> In a café or public space.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>5. When learning a new skill, you:</legend>
+                <label><input type="radio" name="question_5" value="a" required> Read the instructions.</label><br>
+                <label><input type="radio" name="question_5" value="b"> Watch someone do it first.</label><br>
+                <label><input type="radio" name="question_5" value="c"> Jump in and try it yourself.</label><br>
+                <label><input type="radio" name="question_5" value="d"> Ask someone to explain it.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>6. You remember information best when:</legend>
+                <label><input type="radio" name="question_6" value="a" required> You read it.</label><br>
+                <label><input type="radio" name="question_6" value="b"> You hear it.</label><br>
+                <label><input type="radio" name="question_6" value="c"> You do it.</label><br>
+                <label><input type="radio" name="question_6" value="d"> You discuss it with others.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>7. You prefer to study:</legend>
+                <label><input type="radio" name="question_7" value="a" required> Alone.</label><br>
+                <label><input type="radio" name="question_7" value="b"> In a group.</label><br>
+                <label><input type="radio" name="question_7" value="c"> With a tutor.</label><br>
+                <label><input type="radio" name="question_7" value="d"> In a noisy environment.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>8. When explaining something, you:</legend>
+                <label><input type="radio" name="question_8" value="a" required> Use diagrams.</label><br>
+                <label><input type="radio" name="question_8" value="b"> Talk it through.</label><br>
+                <label><input type="radio" name="question_8" value="c"> Show how it's done.</label><br>
+                <label><input type="radio" name="question_8" value="d"> Write it down for them.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>9. When taking notes, you:</legend>
+                <label><input type="radio" name="question_9" value="a" required> Write everything down.</label><br>
+                <label><input type="radio" name="question_9" value="b"> Highlight important points.</label><br>
+                <label><input type="radio" name="question_9" value="c"> Use bullet points.</label><br>
+                <label><input type="radio" name="question_9" value="d"> Draw mind maps.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>10. How do you feel about taking tests?</legend>
+                <label><input type="radio" name="question_10" value="a" required> I feel confident.</label><br>
+                <label><input type="radio" name="question_10" value="b"> I feel anxious.</label><br>
+                <label><input type="radio" name="question_10" value="c"> I feel indifferent.</label><br>
+                <label><input type="radio" name="question_10" value="d"> I enjoy the challenge.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>11. You prefer feedback that is:</legend>
+                <label><input type="radio" name="question_11" value="a" required> Direct and to the point.</label><br>
+                <label><input type="radio" name="question_11" value="b"> Encouraging and positive.</label><br>
+                <label><input type="radio" name="question_11" value="c"> Detailed and thorough.</label><br>
+                <label><input type="radio" name="question_11" value="d"> Constructive and helpful.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>12. How do you handle difficult subjects?</legend>
+                <label><input type="radio" name="question_12" value="a" required> I seek additional resources.</label><br>
+                <label><input type="radio" name="question_12" value="b"> I ask for help.</label><br>
+                <label><input type="radio" name="question_12" value="c"> I give up easily.</label><br>
+                <label><input type="radio" name="question_12" value="d"> I study harder.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>13. Your learning style is primarily:</legend>
+                <label><input type="radio" name="question_13" value="a" required> Visual.</label><br>
+                <label><input type="radio" name="question_13" value="b"> Auditory.</label><br>
+                <label><input type="radio" name="question_13" value="c"> Kinesthetic.</label><br>
+                <label><input type="radio" name="question_13" value="d"> Read/write.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>14. When you encounter new material, you:</legend>
+                <label><input type="radio" name="question_14" value="a" required> Analyze it deeply.</label><br>
+                <label><input type="radio" name="question_14" value="b"> Summarize it quickly.</label><br>
+                <label><input type="radio" name="question_14" value="c"> Relate it to previous knowledge.</label><br>
+                <label><input type="radio" name="question_14" value="d"> Experiment with it.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>15. Your ideal learning format is:</legend>
+                <label><input type="radio" name="question_15" value="a" required> Online courses.</label><br>
+                <label><input type="radio" name="question_15" value="b"> Classroom settings.</label><br>
+                <label><input type="radio" name="question_15" value="c"> Workshops.</label><br>
+                <label><input type="radio" name="question_15" value="d"> Self-study.</label><br>
+            </fieldset>
+            <button type="button" onclick="calculateResult()">Submit</button>
+        </form>
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        function calculateResult() {
+            const answers = [
+                document.querySelector('input[name="question_1"]:checked').value,
+                document.querySelector('input[name="question_2"]:checked').value,
+                document.querySelector('input[name="question_3"]:checked').value,
+                document.querySelector('input[name="question_4"]:checked').value,
+                document.querySelector('input[name="question_5"]:checked').value,
+                document.querySelector('input[name="question_6"]:checked').value,
+                document.querySelector('input[name="question_7"]:checked').value,
+                document.querySelector('input[name="question_8"]:checked').value,
+                document.querySelector('input[name="question_9"]:checked').value,
+                document.querySelector('input[name="question_10"]:checked').value,
+                document.querySelector('input[name="question_11"]:checked').value,
+                document.querySelector('input[name="question_12"]:checked').value,
+                document.querySelector('input[name="question_13"]:checked').value,
+                document.querySelector('input[name="question_14"]:checked').value,
+                document.querySelector('input[name="question_15"]:checked').value,
+            ];
+
+            let score = 0;
+            answers.forEach(answer => {
+                if (answer === 'a') score += 4;
+                else if (answer === 'b') score += 3;
+                else if (answer === 'c') score += 2;
+                else if (answer === 'd') score += 1;
+            });
+
+            let resultText = "";
+            if (score >= 55) {
+                resultText = "You have a strong preference for this learning style!";
+            } else if (score >= 40) {
+                resultText = "You have a moderate preference for this learning style.";
+            } else {
+                resultText = "You may want to explore other learning styles.";
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+</html>

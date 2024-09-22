@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-scale=1.0">
+    <title>Your Spy x Family Character</title>
+</head>
+<body>
+    <h1>Your Spy x Family Character</h1>
+    <div id="result"></div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let score = {};
+        
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            score[answer] = (score[answer] || 0) + 1;
+        }
+
+        let character;
+        const maxScore = Math.max(...Object.values(score));
+        const topAnswers = Object.keys(score).filter(key => score[key] === maxScore);
+
+        if (topAnswers.includes('a')) character = "Loid Forger";
+        else if (topAnswers.includes('b')) character = "Yor Forger";
+        else if (topAnswers.includes('c')) character = "Anya Forger";
+        else if (topAnswers.includes('d')) character = "Franky";
+        else character = "Becky Blackbell";
+
+        document.getElementById('result').innerText = `You are: ${character}`;
+    </script>
+</body>
+</html>

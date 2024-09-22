@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your The Office Character Result</title>
+</head>
+<body>
+    <h1>Your The Office Character Result</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Michael Scott': 0, 'Pam Beesly': 0, 'Dwight Schrute': 0, 'Jim Halpert': 0, 'Angela Martin': 0, 'Stanley Hudson': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Michael Scott']++;
+                            break;
+                        case 'b':
+                            scores['Pam Beesly']++;
+                            break;
+                        case 'c':
+                            scores['Dwight Schrute']++;
+                            break;
+                        case 'd':
+                            scores['Jim Halpert']++;
+                            break;
+                        // Add more cases for additional characters if necessary
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(character) {
+            const descriptions = {
+                'Michael Scott': "You're the fun-loving boss who wants everyone to be happy!",
+                'Pam Beesly': "You're kind and creative, always supporting your friends.",
+                'Dwight Schrute': "You're driven and intense, and you don't mind being different.",
+                'Jim Halpert': "You're the classic prankster who keeps things light-hearted.",
+                'Angela Martin': "You're a bit uptight but you have a strong sense of what you want.",
+                'Stanley Hudson': "You prefer to keep things simple and focus on your own needs."
+            };
+            return descriptions[character];
+        }
+    </script>
+</body>
+</html>

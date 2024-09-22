@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Temperament Result</title>
+</head>
+<body>
+    <h1>Your Temperament Result</h1>
+    <div id="result"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const responses = {
+            artisan: 0,
+            guardian: 0,
+            idealist: 0,
+            rational: 0
+        };
+
+        // Count responses
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) {
+                responses[answer]++;
+            }
+        }
+
+        // Determine the dominant temperament
+        const dominantTemperament = Object.keys(responses).reduce((a, b) => responses[a] > responses[b] ? a : b);
+
+        // Display results
+        const resultText = {
+            artisan: "You are an Artisan. You are creative, spontaneous, and love to live in the moment. You excel in environments that allow you to express your creativity and skills.",
+            guardian: "You are a Guardian. You are responsible, organized, and value security and stability. You thrive in structured environments where you can plan and execute effectively.",
+            idealist: "You are an Idealist. You are empathetic, compassionate, and strive to make the world a better place. You thrive in supportive environments that align with your values.",
+            rational: "You are a Rational. You are analytical, logical, and enjoy solving complex problems. You thrive in intellectually stimulating environments where you can challenge yourself."
+        };
+
+        document.getElementById("result").innerText = resultText[dominantTemperament] || "No valid responses found.";
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerology Love Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Numerology Love Calculator</h1>
+        <p>Enter your names and birth dates to discover your love compatibility!</p>
+
+        <input type="text" id="name1" placeholder="Your Full Name" required>
+        <input type="date" id="dob1" required>
+        <input type="text" id="name2" placeholder="Partner's Full Name" required>
+        <input type="date" id="dob2" required>
+
+        <button onclick="calculateNumerology()">Calculate Compatibility</button>
+        
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        function calculateNumerology() {
+            const name1 = document.getElementById('name1').value;
+            const dob1 = document.getElementById('dob1').value;
+            const name2 = document.getElementById('name2').value;
+            const dob2 = document.getElementById('dob2').value;
+
+            if (!name1 || !dob1 || !name2 || !dob2) {
+                document.getElementById('result').innerText = 'Please enter both names and birth dates.';
+                return;
+            }
+
+            function getNumerologyValue(name) {
+                let value = 0;
+                name = name.toUpperCase().replace(/\s+/g, ''); // Remove spaces
+                for (let char of name) {
+                    value += char.charCodeAt(0) - 64; // A = 1, B = 2, ..., Z = 26
+                }
+                return reduceToSingleDigit(value);
+            }
+
+            function reduceToSingleDigit(num) {
+                while (num > 9) {
+                    num = num.toString().split('').reduce((a, b) => +a + +b);
+                }
+                return num;
+            }
+
+            const name1Value = getNumerologyValue(name1);
+            const name2Value = getNumerologyValue(name2);
+
+            const totalValue = (name1Value + name2Value) % 9 || 9; // 1-9 scale
+            const compatibilityPercentage = Math.round((totalValue / 9) * 100);
+
+            let compatibilityMeaning;
+            switch (totalValue) {
+                case 1:
+                    compatibilityMeaning = "Leadership and independence.";
+                    break;
+                case 2:
+                    compatibilityMeaning = "Harmony and cooperation.";
+                    break;
+                case 3:
+                    compatibilityMeaning = "Creativity and joy.";
+                    break;
+                case 4:
+                    compatibilityMeaning = "Stability and reliability.";
+                    break;
+                case 5:
+                    compatibilityMeaning = "Adventure and freedom.";
+                    break;
+                case 6:
+                    compatibilityMeaning = "Love and nurturing.";
+                    break;
+                case 7:
+                    compatibilityMeaning = "Introspection and spirituality.";
+                    break;
+                case 8:
+                    compatibilityMeaning = "Power and ambition.";
+                    break;
+                case 9:
+                    compatibilityMeaning = "Compassion and selflessness.";
+                    break;
+            }
+
+            document.getElementById('result').innerText = 
+                `${name1} and ${name2} have a compatibility score of ${compatibilityPercentage}%. ` +
+                `This means: ${compatibilityMeaning}`;
+        }
+    </script>
+</body>
+</html>

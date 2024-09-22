@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Results</title>
+</head>
+<body>
+    <h1>Your Results</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Confident Lover': 0, 'Adventurous Partner': 0, 'Caring Companion': 0, 'Laid-Back Lover': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Confident Lover']++;
+                            break;
+                        case 'b':
+                            scores['Adventurous Partner']++;
+                            break;
+                        case 'c':
+                            scores['Caring Companion']++;
+                            break;
+                        case 'd':
+                            scores['Laid-Back Lover']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(type) {
+            const descriptions = {
+                'Confident Lover': "You're self-assured and know what you want!",
+                'Adventurous Partner': "You're open to new experiences and love to explore.",
+                'Caring Companion': "You're attentive and nurturing, focusing on emotional connection.",
+                'Laid-Back Lover': "You prefer to keep things chill and enjoy the moment."
+            };
+            return descriptions[type];
+        }
+    </script>
+</body>
+</html>

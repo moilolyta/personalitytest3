@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16PF Results</title>
+</head>
+<body>
+    <h1>Your 16PF Results</h1>
+    <div id="result-message"></div>
+
+    <script>
+        // Retrieve the form responses from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Extract the responses
+        const responses = [];
+        for (let i = 1; i <= 16; i++) {
+            responses.push(urlParams.get(`question_${i}`));
+        }
+
+        // Interpret the responses to generate a result message
+        const interpretResult = (responses) => {
+            let resultMessage = "";
+
+            // Factor interpretations
+            const factors = [
+                { name: "Warmth", desc: ["You tend to be warm and caring, easily connecting with others emotionally.", "You tend to be more reserved and prefer to maintain a certain distance in relationships."] },
+                { name: "Reasoning", desc: ["You enjoy complex thinking and problem-solving, thriving in intellectually stimulating environments.", "You prefer simpler tasks and may find complex reasoning less enjoyable."] },
+                { name: "Emotional Stability", desc: ["You generally handle stress well and remain calm in difficult situations.", "You may experience anxiety and find it challenging to cope with stress."] },
+                { name: "Dominance", desc: ["You tend to be assertive and take charge in social situations.", "You may prefer to let others lead and be more submissive in group settings."] },
+                { name: "Liveliness", desc: ["You are energetic and enthusiastic, enjoying lively interactions.", "You may be more reserved and prefer quieter environments."] },
+                { name: "Rule-consciousness", desc: ["You adhere strongly to rules and enjoy structured environments.", "You may prefer flexibility and are less concerned with following rules."] },
+                { name: "Social Boldness", desc: ["You are confident in social situations and enjoy meeting new people.", "You may feel shy or anxious in social settings."] },
+                { name: "Sensitivity", desc: ["You are empathetic and sensitive to the feelings of others.", "You may be more focused on logic and less attuned to emotions."] },
+                { name: "Vigilance", desc: ["You are cautious and vigilant, often thinking ahead.", "You may be more trusting and less suspicious of others."] },
+                { name: "Abstractedness", desc: ["You are imaginative and enjoy thinking about abstract concepts.", "You may prefer practical and concrete ideas over abstract ones."] },
+                { name: "Privateness", desc: ["You tend to keep your thoughts and feelings private.", "You are open and share your personal information readily."] },
+                { name: "Apprehension", desc: ["You may often feel anxious or apprehensive about the future.", "You are generally confident and optimistic."] },
+                { name: "Openness to Change", desc: ["You are adaptable and enjoy new experiences.", "You may prefer routine and familiarity."] },
+                { name: "Self-reliance", desc: ["You are independent and prefer to rely on yourself.", "You may enjoy collaboration and working with others."] },
+                { name: "Perfectionism", desc: ["You set high standards for yourself and strive for perfection.", "You may be more relaxed about your goals and standards."] },
+                { name: "Tension", desc: ["You may often feel tense and restless.", "You are generally calm and composed."] }
+            ];
+
+            factors.forEach((factor, index) => {
+                resultMessage += `<h2>Factor ${index + 1}: ${factor.name}</h2>`;
+                if (responses[index] === "a" || responses[index] === "b") {
+                    resultMessage += `<p>${factor.desc[0]}</p>`;
+                } else {
+                    resultMessage += `<p>${factor.desc[1]}</p>`;
+                }
+            });
+
+            return resultMessage;
+        };
+
+        // Display the results
+        document.getElementById("result-message").innerHTML = interpretResult(responses);
+    </script>
+</body>
+</html>
+
+

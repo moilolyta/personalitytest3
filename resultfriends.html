@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Friends Character Result</title>
+</head>
+<body>
+    <h1>Your Friends Character</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Ross Geller': 0, 'Rachel Green': 0, 'Monica Geller': 0, 'Chandler Bing': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Ross Geller']++;
+                            break;
+                        case 'b':
+                            scores['Rachel Green']++;
+                            break;
+                        case 'c':
+                            scores['Monica Geller']++;
+                            break;
+                        case 'd':
+                            scores['Chandler Bing']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(character) {
+            const descriptions = {
+                'Ross Geller': "You're the intelligent and sometimes nerdy friend who loves dinosaurs.",
+                'Rachel Green': "You're the fashionable and social one, always on the go.",
+                'Monica Geller': "You're the organized and competitive friend who loves to cook.",
+                'Chandler Bing': "You're the funny and sarcastic one who loves to make jokes."
+            };
+            return descriptions[character];
+        }
+    </script>
+</body>
+</html>

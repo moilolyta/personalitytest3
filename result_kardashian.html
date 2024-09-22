@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Kardashian-Jenner Result</title>
+</head>
+<body>
+    <h1>Your Kardashian-Jenner Result</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Kim Kardashian': 0, 'Kylie Jenner': 0, 'Khloé Kardashian': 0, 'Kourtney Kardashian': 0, 'Caitlyn Jenner': 0, 'Scott Disick': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Kim Kardashian']++;
+                            break;
+                        case 'b':
+                            scores['Kylie Jenner']++;
+                            break;
+                        case 'c':
+                            scores['Khloé Kardashian']++;
+                            break;
+                        case 'd':
+                            scores['Kourtney Kardashian']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(character) {
+            const descriptions = {
+                'Kim Kardashian': "You are ambitious, stylish, and always in the spotlight. You know how to get what you want and do it with flair.",
+                'Kylie Jenner': "You're a trendsetter and love to experiment with your style. You embrace your individuality and aren't afraid to show it.",
+                'Khloé Kardashian': "You're fun-loving and fiercely loyal to your friends and family. You have a strong personality and always stand up for what you believe in.",
+                'Kourtney Kardashian': "You value family and prefer a balanced lifestyle. You’re the nurturing type who enjoys the simpler things in life.",
+                'Caitlyn Jenner': "You are brave and authentic, always staying true to yourself. You inspire others with your journey and determination.",
+                'Scott Disick': "You have a playful, charismatic personality. You enjoy the finer things in life and love to entertain."
+            };
+            return descriptions[character];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Mad Men Character Result</title>
+</head>
+<body>
+    <h1>Your Mad Men Character Result</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Don Draper': 0, 'Joan Holloway': 0, 'Peggy Olson': 0, 'Roger Sterling': 0, 'Betty Draper': 0, 'Pete Campbell': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Don Draper']++;
+                            break;
+                        case 'b':
+                            scores['Peggy Olson']++;
+                            break;
+                        case 'c':
+                            scores['Roger Sterling']++;
+                            break;
+                        case 'd':
+                            scores['Joan Holloway']++;
+                            break;
+                        // Add more conditions as needed for other characters
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(character) {
+            const descriptions = {
+                'Don Draper': "You're a visionary leader, always thinking ahead, but sometimes haunted by your past.",
+                'Joan Holloway': "You know how to get things done, using both charm and intelligence.",
+                'Peggy Olson': "Ambitious and hardworking, you're constantly proving yourself.",
+                'Roger Sterling': "You're witty, charismatic, and enjoy the finer things in life.",
+                'Betty Draper': "You value tradition and often find yourself searching for deeper meaning.",
+                'Pete Campbell': "You're driven by success and will do whatever it takes to get ahead."
+            };
+            return descriptions[character] || "An enigma!";
+        }
+    </script>
+</body>
+</html>

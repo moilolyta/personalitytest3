@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Mythical Creature</title>
+</head>
+<body>
+    <h1>Your Mythical Creature</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Vampire': 0, 'Fairy': 0, 'Werewolf': 0, 'Dragon': 0, 'Witch': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Vampire']++;
+                            break;
+                        case 'b':
+                            scores['Fairy']++;
+                            break;
+                        case 'c':
+                            scores['Werewolf']++;
+                            break;
+                        case 'd':
+                            scores['Dragon']++;
+                            break;
+                        case 'e':
+                            scores['Witch']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(creature) {
+            const descriptions = {
+                'Vampire': "You are mysterious and charming, always drawn to the night.",
+                'Fairy': "You are playful and whimsical, spreading joy wherever you go.",
+                'Werewolf': "You are strong and fierce, with a wild spirit that can't be tamed.",
+                'Dragon': "You are powerful and majestic, a guardian of treasures.",
+                'Witch': "You are wise and intuitive, skilled in the arts of magic."
+            };
+            return descriptions[creature];
+        }
+    </script>
+</body>
+</html>

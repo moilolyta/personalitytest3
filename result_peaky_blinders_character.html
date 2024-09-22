@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Peaky Blinders Character Result</title>
+</head>
+<body>
+    <h1>Your Peaky Blinders Character Result</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Tommy Shelby': 0, 'Arthur Shelby': 0, 'Polly Gray': 0, 'John Shelby': 0, 'Ada Shelby': 0, 'Alfie Solomons': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Tommy Shelby']++;
+                            break;
+                        case 'b':
+                            scores['Arthur Shelby']++;
+                            break;
+                        case 'c':
+                            scores['Polly Gray']++;
+                            break;
+                        case 'd':
+                            scores['Alfie Solomons']++;
+                            break;
+                        // Add more conditions as needed for other characters
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(character) {
+            const descriptions = {
+                'Tommy Shelby': "You're a mastermind with a knack for strategy, always a step ahead.",
+                'Arthur Shelby': "You're fiercely loyal, but your temper can sometimes get the better of you.",
+                'Polly Gray': "Wise and protective, you're the backbone that holds everything together.",
+                'John Shelby': "Brave and bold, you follow your instincts and care deeply for your family.",
+                'Ada Shelby': "You're independent, with a strong sense of justice and empathy.",
+                'Alfie Solomons': "Unpredictable and clever, you always find a way to come out on top."
+            };
+            return descriptions[character] || "An intriguing enigma!";
+        }
+    </script>
+</body>
+</html>

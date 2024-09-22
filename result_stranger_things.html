@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Stranger Things Character</title>
+</head>
+<body>
+    <h1>Your Stranger Things Character</h1>
+    <p id="result"></p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const scores = { 'Eleven': 0, 'Mike': 0, 'Dustin': 0, 'Lucas': 0, 'Max': 0, 'Will': 0 };
+
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) {
+                switch (answer) {
+                    case 'a': scores['Eleven']++; break; 
+                    case 'b': scores['Mike']++; break;
+                    case 'c': scores['Dustin']++; break;
+                    case 'd': scores['Lucas']++; break;
+                    case 'e': scores['Max']++; break;
+                    case 'f': scores['Will']++; break;
+                }
+            }
+        }
+
+        const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        
+        const descriptions = {
+            'Eleven': "You are Eleven! Strong, unique, and brave.",
+            'Mike': "You are Mike! Loyal, caring, and a true friend.",
+            'Dustin': "You are Dustin! Fun-loving, witty, and resourceful.",
+            'Lucas': "You are Lucas! Practical, protective, and courageous.",
+            'Max': "You are Max! Adventurous, bold, and confident.",
+            'Will': "You are Will! Sensitive, imaginative, and a survivor."
+        };
+
+        document.getElementById('result').innerText = descriptions[result];
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-scale=1.0">
+    <title>Your Character Archetype</title>
+</head>
+<body>
+    <h1>Your Character Archetype</h1>
+    <div id="result"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const answers = [
+            urlParams.get('question_1'),
+            urlParams.get('question_2'),
+            urlParams.get('question_3'),
+            urlParams.get('question_4'),
+            urlParams.get('question_5'),
+            urlParams.get('question_6'),
+            urlParams.get('question_7'),
+            urlParams.get('question_8'),
+            urlParams.get('question_9'),
+            urlParams.get('question_10'),
+            urlParams.get('question_11'),
+            urlParams.get('question_12'),
+            urlParams.get('question_13'),
+            urlParams.get('question_14'),
+            urlParams.get('question_15'),
+        ];
+
+        const archetypeCounts = {
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0
+        };
+
+        answers.forEach(answer => {
+            if (answer) archetypeCounts[answer]++;
+        });
+
+        const highestArchetype = Object.keys(archetypeCounts).reduce((a, b) => archetypeCounts[a] > archetypeCounts[b] ? a : b);
+
+        let resultText = '';
+
+        switch (highestArchetype) {
+            case 'a':
+                resultText = "You are the Caregiver! You are nurturing and selfless, always looking to help others.";
+                break;
+            case 'b':
+                resultText = "You are the Hero! You are brave and confident, always ready to take charge.";
+                break;
+            case 'c':
+                resultText = "You are the Sage! You are wise and knowledgeable, often sought for advice.";
+                break;
+            case 'd':
+                resultText = "You are the Creator! You are imaginative and expressive, always looking to innovate.";
+                break;
+            default:
+                resultText = "No archetype found.";
+        }
+
+        document.getElementById('result').innerText = resultText;
+    </script>
+</body>
+</html>

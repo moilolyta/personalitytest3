@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personality Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #result-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #000;
+            display: inline-block;
+            width: 300px;
+        }
+        #result-description {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #color-name {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Personality Color</h1>
+    <div id="result-container">
+        <div id="color-name"></div>
+        <div id="result-description"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const responses = {
+            red: 0,
+            blue: 0,
+            green: 0,
+            yellow: 0,
+            purple: 0,
+            orange: 0
+        };
+
+        // Conta le risposte
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) {
+                responses[answer]++;
+            }
+        }
+
+        // Descrizioni dei risultati
+        const resultText = {
+            red: "You are passionate, driven, and energetic. You face challenges head-on and lead with determination.",
+            blue: "You are calm, thoughtful, and value harmony. You approach life with peace and seek stability.",
+            green: "You are balanced, nurturing, and grounded. You prioritize growth and harmony in all areas of life.",
+            yellow: "You are creative, optimistic, and fun-loving. You inspire joy and positivity in those around you.",
+            purple: "You are reflective, intuitive, and wise. You seek deep connections and value spiritual growth.",
+            orange: "You are energetic, social, and love teamwork. You thrive in group settings and enjoy collaborative success."
+        };
+
+        // Trova il colore dominante
+        let dominantColor = Object.keys(responses).reduce((a, b) => {
+            return responses[a] > responses[b] ? a : b;
+        });
+
+        // Se tutti i colori hanno lo stesso punteggio, scegliamo il primo colore "red" come predefinito
+        const allEqual = Object.values(responses).every(value => value === responses[dominantColor]);
+        if (allEqual) {
+            dominantColor = 'red';
+        }
+
+        // Mostra il colore e la descrizione corrispondente
+        document.getElementById("color-name").textContent = dominantColor.charAt(0).toUpperCase() + dominantColor.slice(1);
+        document.getElementById("result-description").textContent = resultText[dominantColor];
+    </script>
+</body>
+</html>
+

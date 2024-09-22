@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Mandalorian Character</title>
+</head>
+<body>
+    <h1>Your Mandalorian Character</h1>
+    <p id="result"></p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const scores = { 'Din Djarin': 0, 'Grogu': 0, 'Cara Dune': 0, 'Greef Karga': 0, 'Ahsoka Tano': 0, 'Moff Gideon': 0 };
+
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) {
+                switch (answer) {
+                    case 'a': scores['Din Djarin']++; break;
+                    case 'b': scores['Grogu']++; break;
+                    case 'c': scores['Cara Dune']++; break;
+                    case 'd': scores['Greef Karga']++; break;
+                    case 'e': scores['Ahsoka Tano']++; break;
+                    case 'f': scores['Moff Gideon']++; break;
+                }
+            }
+        }
+
+        const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        
+        const descriptions = {
+            'Din Djarin': "You are Din Djarin! A lone warrior with a strong moral code.",
+            'Grogu': "You are Grogu! Cute, curious, and full of surprises.",
+            'Cara Dune': "You are Cara Dune! Strong, brave, and a fierce protector.",
+            'Greef Karga': "You are Greef Karga! Charismatic, resourceful, and clever.",
+            'Ahsoka Tano': "You are Ahsoka Tano! Wise, skilled, and always fighting for the light.",
+            'Moff Gideon': "You are Moff Gideon! Strategic, ambitious, and determined."
+        };
+
+        document.getElementById('result').innerText = descriptions[result];
+    </script>
+</body>
+</html>

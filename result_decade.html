@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Decade Result</title>
+</head>
+<body>
+    <h1>Your Decade</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { '50s': 0, '70s': 0, '80s': 0, '90s': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['50s']++;
+                            break;
+                        case 'b':
+                            scores['90s']++;
+                            break;
+                        case 'c':
+                            scores['80s']++;
+                            break;
+                        case 'd':
+                            scores['70s']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You belong in the <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(decade) {
+            const descriptions = {
+                '50s': "You are nostalgic for the simpler, wholesome times. You appreciate tradition and style.",
+                '70s': "You have a free spirit and love expressing yourself creatively.",
+                '80s': "You're bold, love big personalities, and are not afraid to stand out.",
+                '90s': "You thrive in a more relaxed, fun, and tech-savvy era."
+            };
+            return descriptions[decade];
+        }
+    </script>
+</body>
+</html>
+

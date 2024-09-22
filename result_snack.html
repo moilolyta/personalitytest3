@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Snack Personality Result</title>
+</head>
+<body>
+    <h1>Your Snack Personality</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Spicy Chips': 0, 'Chocolate': 0, 'Ice Cream': 0, 'Fruit': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Spicy Chips']++;
+                            break;
+                        case 'b':
+                            scores['Chocolate']++;
+                            break;
+                        case 'c':
+                            scores['Ice Cream']++;
+                            break;
+                        case 'd':
+                            scores['Fruit']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(snack) {
+            const descriptions = {
+                'Spicy Chips': "You are bold, daring, and love a little excitement in life!",
+                'Chocolate': "You're sweet, comforting, and bring joy to everyone around you.",
+                'Ice Cream': "You are cool, laid-back, and enjoy relaxing moments.",
+                'Fruit': "You are healthy, disciplined, and always striving for balance."
+            };
+            return descriptions[snack];
+        }
+    </script>
+</body>
+</html>

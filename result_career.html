@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Ideal Career Result</title>
+</head>
+<body>
+    <h1>Your Ideal Career</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Artist': 0, 'Business Executive': 0, 'Teacher': 0, 'Scientist': 0, 'Social Worker': 0, 'Engineer': 0, 'Writer': 0, 'Entrepreneur': 0, 'Marketer': 0, 'Researcher': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Artist']++;
+                            break;
+                        case 'b':
+                            scores['Business Executive']++;
+                            break;
+                        case 'c':
+                            scores['Teacher']++;
+                            break;
+                        case 'd':
+                            scores['Scientist']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You should consider being a: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(career) {
+            const descriptions = {
+                'Artist': "You have a creative soul. Careers in art, music, or design could bring you joy.",
+                'Business Executive': "You're a leader and strategist. Consider careers in management or entrepreneurship.",
+                'Teacher': "You love sharing knowledge. A career in education could be very fulfilling for you.",
+                'Scientist': "You're curious and analytical. A career in research or science might suit you well.",
+                'Social Worker': "You have a strong desire to help others. Consider a career in social work or counseling.",
+                'Engineer': "You have a logical mind. Careers in engineering could be your perfect fit.",
+                'Writer': "You express yourself best through words. A writing or editorial career could be ideal.",
+                'Entrepreneur': "You have a knack for innovation. Consider starting your own business.",
+                'Marketer': "You understand trends and people. A career in marketing could be a great match.",
+                'Researcher': "You enjoy delving deep into topics. Consider careers in research or data analysis."
+            };
+            return descriptions[career];
+        }
+    </script>
+</body>
+</html>

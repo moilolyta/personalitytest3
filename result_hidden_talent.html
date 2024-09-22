@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Hidden Talent Result</title>
+</head>
+<body>
+    <h1>Your Hidden Talent</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Artist': 0, 'Musician': 0, 'Writer': 0, 'Performer': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Artist']++;
+                            break;
+                        case 'b':
+                            scores['Musician']++;
+                            break;
+                        case 'c':
+                            scores['Writer']++;
+                            break;
+                        case 'd':
+                            scores['Performer']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You have a hidden talent for: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(talent) {
+            const descriptions = {
+                'Artist': "You have a creative spirit that loves to express itself through visual arts.",
+                'Musician': "You possess a musical talent that makes you resonate with rhythm and melody.",
+                'Writer': "You have a way with words and storytelling that captivates others.",
+                'Performer': "You shine on stage and have a flair for entertaining others."
+            };
+            return descriptions[talent];
+        }
+    </script>
+</body>
+</html>

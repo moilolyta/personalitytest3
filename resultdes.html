@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-scale=1.0">
+    <title>Your Desperate Housewives Character</title>
+</head>
+<body>
+    <h1>Your Desperate Housewives Character</h1>
+    <div id="result"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const answers = [
+            urlParams.get('question_1'),
+            urlParams.get('question_2'),
+            urlParams.get('question_3'),
+            urlParams.get('question_4'),
+            urlParams.get('question_5'),
+            urlParams.get('question_6'),
+            urlParams.get('question_7'),
+            urlParams.get('question_8'),
+            urlParams.get('question_9'),
+            urlParams.get('question_10'),
+            urlParams.get('question_11'),
+            urlParams.get('question_12'),
+            urlParams.get('question_13'),
+            urlParams.get('question_14'),
+            urlParams.get('question_15'),
+        ];
+
+        const characterCounts = {
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0
+        };
+
+        answers.forEach(answer => {
+            if (answer) characterCounts[answer]++;
+        });
+
+        const highestCharacter = Object.keys(characterCounts).reduce((a, b) => characterCounts[a] > characterCounts[b] ? a : b);
+
+        let resultText = '';
+
+        switch (highestCharacter) {
+            case 'a':
+                resultText = "You are Susan Mayer! Fun-loving and always looking for love.";
+                break;
+            case 'b':
+                resultText = "You are Bree Van de Kamp! A perfectionist with strong values.";
+                break;
+            case 'c':
+                resultText = "You are Lynette Scavo! A dedicated mother and a fierce protector.";
+                break;
+            case 'd':
+                resultText = "You are Gabby Solis! Confident, glamorous, and a bit sassy.";
+                break;
+        }
+
+        document.getElementById('result').innerText = resultText;
+    </script>
+</body>
+</html>

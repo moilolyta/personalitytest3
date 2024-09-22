@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Hunter x Hunter Character</title>
+</head>
+<body>
+    <h1>Your Hunter x Hunter Character</h1>
+    <div id="result"></div>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const answers = [urlParams.get('question_1'), urlParams.get('question_2'), urlParams.get('question_3'), urlParams.get('question_4'), urlParams.get('question_5'), urlParams.get('question_6'), urlParams.get('question_7'), urlParams.get('question_8'), urlParams.get('question_9'), urlParams.get('question_10')];
+
+        let result = '';
+        const score = {
+            "Gon Freecss": 0,
+            "Killua Zoldyck": 0,
+            "Kurapika": 0,
+            "Leorio Paradinight": 0,
+            "Hisoka Morow": 0,
+            "Chrollo Lucilfer": 0,
+        };
+
+        answers.forEach(answer => {
+            switch (answer) {
+                case 'a':
+                    score["Gon Freecss"] += 1;
+                    break;
+                case 'b':
+                    score["Killua Zoldyck"] += 1;
+                    break;
+                case 'c':
+                    score["Kurapika"] += 1;
+                    break;
+                case 'd':
+                    score["Leorio Paradinight"] += 1;
+                    break;
+                // Add more scoring logic as needed
+            }
+        });
+
+        const maxScore = Math.max(...Object.values(score));
+        const characters = Object.keys(score).filter(character => score[character] === maxScore);
+
+        if (characters.length > 1) {
+            result = "You are a mix of: " + characters.join(', ') + ".";
+        } else {
+            result = "You are: " + characters[0] + "!";
+        }
+
+        const descriptions = {
+            "Gon Freecss": "Gon is adventurous and optimistic, always eager to explore and make friends.",
+            "Killua Zoldyck": "Killua is cool and cunning, with a sharp mind and quick reflexes.",
+            "Kurapika": "Kurapika is driven by a strong sense of justice and is determined to protect those he loves.",
+            "Leorio Paradinight": "Leorio is ambitious and wants to become a doctor, showing his caring side.",
+            "Hisoka Morow": "Hisoka is playful yet dangerous, thriving on excitement and unpredictability.",
+            "Chrollo Lucilfer": "Chrollo is strategic and manipulative, a leader with a calm demeanor."
+        };
+
+        document.getElementById('result').innerHTML = result + '<br><br>' + descriptions[characters[0]];
+    </script>
+</body>
+</html>

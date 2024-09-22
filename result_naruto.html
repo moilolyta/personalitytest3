@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Naruto Character Result</title>
+</head>
+<body>
+    <h1>Your Naruto Character Result</h1>
+    <p>Your result: <span id="character"></span></p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const answers = [
+            urlParams.get('question_1'),
+            urlParams.get('question_2'),
+            urlParams.get('question_3'),
+            urlParams.get('question_4'),
+            urlParams.get('question_5'),
+            urlParams.get('question_6'),
+            urlParams.get('question_7'),
+            urlParams.get('question_8'),
+            urlParams.get('question_9'),
+            urlParams.get('question_10')
+        ];
+
+        let result = '';
+
+        const aCount = answers.filter(answer => answer === 'a').length;
+        const bCount = answers.filter(answer => answer === 'b').length;
+        const cCount = answers.filter(answer => answer === 'c').length;
+        const dCount = answers.filter(answer => answer === 'd').length;
+
+        if (aCount > bCount && aCount > cCount && aCount > dCount) {
+            result = 'Naruto Uzumaki';
+        } else if (bCount > aCount && bCount > cCount && bCount > dCount) {
+            result = 'Sasuke Uchiha';
+        } else if (cCount > aCount && cCount > bCount && cCount > dCount) {
+            result = 'Sakura Haruno';
+        } else if (dCount > aCount && dCount > bCount && dCount > cCount) {
+            result = 'Kakashi Hatake';
+        } else if (aCount === bCount) {
+            result = 'Hinata Hyuga';
+        } else {
+            result = 'Shikamaru Nara';
+        }
+
+        document.getElementById('character').innerText = result;
+    </script>
+</body>
+</html>

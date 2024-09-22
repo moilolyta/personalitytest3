@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Love Language Result</title>
+</head>
+<body>
+    <h1>Your Love Language</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = {
+                'Words of Affirmation': 0,
+                'Acts of Service': 0,
+                'Receiving Gifts': 0,
+                'Quality Time': 0,
+                'Physical Touch': 0
+            };
+
+            for (let i = 1; i <= 5; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Words of Affirmation']++;
+                            break;
+                        case 'b':
+                            scores['Acts of Service']++;
+                            break;
+                        case 'c':
+                            scores['Receiving Gifts']++;
+                            break;
+                        case 'd':
+                            scores['Quality Time']++;
+                            break;
+                        case 'e':
+                            scores['Physical Touch']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>Your Love Language is: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(language) {
+            const descriptions = {
+                'Words of Affirmation': "You feel most loved when people express their feelings for you through words.",
+                'Acts of Service': "You appreciate when others help you with tasks and responsibilities.",
+                'Receiving Gifts': "You feel cherished when you receive thoughtful gifts.",
+                'Quality Time': "You value undivided attention and quality time spent together.",
+                'Physical Touch': "You feel loved through physical connection and intimacy."
+            };
+            return descriptions[language];
+        }
+    </script>
+</body>
+</html>
