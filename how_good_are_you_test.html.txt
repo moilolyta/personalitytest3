@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Good Are You in Bed?</title>
+</head>
+<body>
+    <h1>How Good Are You in Bed?</h1>
+    <form id="quiz-form" action="result_how_good.html" method="GET">
+        <fieldset>
+            <legend>What’s your idea of a romantic evening?</legend>
+            <label><input type="radio" name="question_1" value="a" required> A candlelit dinner</label><br>
+            <label><input type="radio" name="question_1" value="b"> A night out dancing</label><br>
+            <label><input type="radio" name="question_1" value="c"> A cozy movie night</label><br>
+            <label><input type="radio" name="question_1" value="d"> An adventurous trip</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How do you communicate with your partner?</legend>
+            <label><input type="radio" name="question_2" value="a" required> Openly and honestly</label><br>
+            <label><input type="radio" name="question_2" value="b"> Through actions, not words</label><br>
+            <label><input type="radio" name="question_2" value="c"> I prefer to keep things light</label><br>
+            <label><input type="radio" name="question_2" value="d"> I let them guess what I want</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What’s your preferred setting for intimacy?</legend>
+            <label><input type="radio" name="question_3" value="a" required> A romantic bedroom</label><br>
+            <label><input type="radio" name="question_3" value="b"> A fun outdoor spot</label><br>
+            <label><input type="radio" name="question_3" value="c"> A luxurious hotel room</label><br>
+            <label><input type="radio" name="question_3" value="d"> Anywhere spontaneous</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How adventurous are you in bed?</legend>
+            <label><input type="radio" name="question_4" value="a" required> Very adventurous</label><br>
+            <label><input type="radio" name="question_4" value="b"> Somewhat adventurous</label><br>
+            <label><input type="radio" name="question_4" value="c"> Not very adventurous</label><br>
+            <label><input type="radio" name="question_4" value="d"> I prefer to keep it simple</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How do you feel about surprises?</legend>
+            <label><input type="radio" name="question_5" value="a" required> I love them!</label><br>
+            <label><input type="radio" name="question_5" value="b"> They’re nice sometimes</label><br>
+            <label><input type="radio" name="question_5" value="c"> I’m not a fan</label><br>
+            <label><input type="radio" name="question_5" value="d"> Only if they’re planned</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What’s your approach to trying new things?</legend>
+            <label><input type="radio" name="question_6" value="a" required> I'm always open to new experiences</label><br>
+            <label><input type="radio" name="question_6" value="b"> I’m curious but cautious</label><br>
+            <label><input type="radio" name="question_6" value="c"> I prefer familiar routines</label><br>
+            <label><input type="radio" name="question_6" value="d"> Only if my partner insists</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How often do you talk about your desires?</legend>
+            <label><input type="radio" name="question_7" value="a" required> Frequently</label><br>
+            <label><input type="radio" name="question_7" value="b"> Occasionally</label><br>
+            <label><input type="radio" name="question_7" value="c"> Rarely</label><br>
+            <label><input type="radio" name="question_7" value="d"> Never</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How do you feel about role-playing?</legend>
+            <label><input type="radio" name="question_8" value="a" required> I love it!</label><br>
+            <label><input type="radio" name="question_8" value="b"> It sounds interesting</label><br>
+            <label><input type="radio" name="question_8" value="c"> Not really my thing</label><br>
+            <label><input type="radio" name="question_8" value="d"> I’d need to be convinced</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What’s your favorite way to express affection?</legend>
+            <label><input type="radio" name="question_9" value="a" required> Words of affirmation</label><br>
+            <label><input type="radio" name="question_9" value="b"> Physical touch</label><br>
+            <label><input type="radio" name="question_9" value="c"> Acts of service</label><br>
+            <label><input type="radio" name="question_9" value="d"> Quality time</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How confident are you in your intimate skills?</legend>
+            <label><input type="radio" name="question_10" value="a" required> Very confident</label><br>
+            <label><input type="radio" name="question_10" value="b"> Somewhat confident</label><br>
+            <label><input type="radio" name="question_10" value="c"> Not confident at all</label><br>
+            <label><input type="radio" name="question_10" value="d"> It depends on the partner</label>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

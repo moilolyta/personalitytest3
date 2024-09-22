@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Color Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        fieldset {
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>What Color Represents Your Personality?</h1>
+    <p>Answer the following questions to discover which color best matches your personality.</p>
+
+    <form id="quiz-form" action="result_color.html" method="GET">
+        <!-- Domanda 1 -->
+        <fieldset>
+            <legend>How do you handle stressful situations?</legend>
+            <label><input type="radio" name="question_1" value="red" required> I take charge and face the problem directly.</label><br>
+            <label><input type="radio" name="question_1" value="blue"> I stay calm and look for logical solutions.</label><br>
+            <label><input type="radio" name="question_1" value="green"> I seek balance and try to keep everyone happy.</label><br>
+            <label><input type="radio" name="question_1" value="yellow"> I bring humor and positivity to lighten the mood.</label><br>
+            <label><input type="radio" name="question_1" value="purple"> I rely on my intuition and inner peace.</label><br>
+            <label><input type="radio" name="question_1" value="orange"> I motivate others to work together and find solutions.</label>
+        </fieldset>
+
+        <!-- Domanda 2 -->
+        <fieldset>
+            <legend>What do you value most in life?</legend>
+            <label><input type="radio" name="question_2" value="red" required> Achievement and success.</label><br>
+            <label><input type="radio" name="question_2" value="blue"> Peace and harmony.</label><br>
+            <label><input type="radio" name="question_2" value="green"> Balance and growth.</label><br>
+            <label><input type="radio" name="question_2" value="yellow"> Creativity and fun.</label><br>
+            <label><input type="radio" name="question_2" value="purple"> Wisdom and deep connections.</label><br>
+            <label><input type="radio" name="question_2" value="orange"> Social connections and teamwork.</label>
+        </fieldset>
+
+        <!-- Domanda 3 -->
+        <fieldset>
+            <legend>How do you approach your goals?</legend>
+            <label><input type="radio" name="question_3" value="red" required> I focus intensely and work hard to achieve them.</label><br>
+            <label><input type="radio" name="question_3" value="blue"> I plan carefully and take steady steps.</label><br>
+            <label><input type="radio" name="question_3" value="green"> I balance different aspects and stay consistent.</label><br>
+            <label><input type="radio" name="question_3" value="yellow"> I use creativity to find unique solutions.</label><br>
+            <label><input type="radio" name="question_3" value="purple"> I reflect deeply and trust my intuition.</label><br>
+            <label><input type="radio" name="question_3" value="orange"> I involve others and collaborate to reach my goals.</label>
+        </fieldset>
+
+        <!-- Domanda 4 -->
+        <fieldset>
+            <legend>What type of social interactions do you prefer?</legend>
+            <label><input type="radio" name="question_4" value="red" required> I prefer being in charge and leading others.</label><br>
+            <label><input type="radio" name="question_4" value="blue"> I enjoy calm and intimate conversations.</label><br>
+            <label><input type="radio" name="question_4" value="green"> I seek balanced and meaningful interactions.</label><br>
+            <label><input type="radio" name="question_4" value="yellow"> I love being the center of attention and having fun.</label><br>
+            <label><input type="radio" name="question_4" value="purple"> I enjoy deep, meaningful conversations with few people.</label><br>
+            <label><input type="radio" name="question_4" value="orange"> I thrive in large social gatherings and meeting new people.</label>
+        </fieldset>
+
+        <!-- Domanda 5 -->
+        <fieldset>
+            <legend>How do you deal with conflicts?</legend>
+            <label><input type="radio" name="question_5" value="red" required> I confront the issue directly and find a solution.</label><br>
+            <label><input type="radio" name="question_5" value="blue"> I stay calm and try to mediate.</label><br>
+            <label><input type="radio" name="question_5" value="green"> I seek balance and compromise.</label><br>
+            <label><input type="radio" name="question_5" value="yellow"> I defuse the situation with humor or positivity.</label><br>
+            <label><input type="radio" name="question_5" value="purple"> I reflect and try to understand deeper issues.</label><br>
+            <label><input type="radio" name="question_5" value="orange"> I involve everyone to find a group solution.</label>
+        </fieldset>
+
+        <!-- Altre domande continuano fino alla domanda 10 -->
+        <fieldset>
+            <legend>What best describes your approach to life?</legend>
+            <label><input type="radio" name="question_10" value="red" required> Determined and ambitious.</label><br>
+            <label><input type="radio" name="question_10" value="blue"> Peaceful and thoughtful.</label><br>
+            <label><input type="radio" name="question_10" value="green"> Balanced and steady.</label><br>
+            <label><input type="radio" name="question_10" value="yellow"> Creative and spontaneous.</label><br>
+            <label><input type="radio" name="question_10" value="purple"> Reflective and insightful.</label><br>
+            <label><input type="radio" name="question_10" value="orange"> Collaborative and energetic.</label>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

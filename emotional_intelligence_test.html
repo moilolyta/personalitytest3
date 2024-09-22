@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Intelligence Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; text-align: center; }
+        input { margin: 10px; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Emotional Intelligence Test</h1>
+        <form id="quiz-form">
+            <fieldset>
+                <legend>1. How do you feel when someone is upset?</legend>
+                <label><input type="radio" name="question_1" value="a" required> I try to comfort them.</label><br>
+                <label><input type="radio" name="question_1" value="b"> I feel uncomfortable.</label><br>
+                <label><input type="radio" name="question_1" value="c"> I ignore their feelings.</label><br>
+                <label><input type="radio" name="question_1" value="d"> I try to make them laugh.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>2. When faced with criticism, you:</legend>
+                <label><input type="radio" name="question_2" value="a" required> Take it to heart and reflect on it.</label><br>
+                <label><input type="radio" name="question_2" value="b"> Get defensive.</label><br>
+                <label><input type="radio" name="question_2" value="c"> Ignore it completely.</label><br>
+                <label><input type="radio" name="question_2" value="d"> Ask for clarification.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>3. In a group setting, you are:</legend>
+                <label><input type="radio" name="question_3" value="a" required> The one who mediates conflicts.</label><br>
+                <label><input type="radio" name="question_3" value="b"> Often quiet.</label><br>
+                <label><input type="radio" name="question_3" value="c"> The one who creates tension.</label><br>
+                <label><input type="radio" name="question_3" value="d"> The one who encourages participation.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>4. How do you handle stress?</legend>
+                <label><input type="radio" name="question_4" value="a" required> I stay calm and assess the situation.</label><br>
+                <label><input type="radio" name="question_4" value="b"> I panic and feel overwhelmed.</label><br>
+                <label><input type="radio" name="question_4" value="c"> I distract myself with other activities.</label><br>
+                <label><input type="radio" name="question_4" value="d"> I seek support from others.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>5. When someone shares their feelings, you:</legend>
+                <label><input type="radio" name="question_5" value="a" required> Listen attentively and empathize.</label><br>
+                <label><input type="radio" name="question_5" value="b"> Change the topic to avoid discomfort.</label><br>
+                <label><input type="radio" name="question_5" value="c"> Offer solutions immediately.</label><br>
+                <label><input type="radio" name="question_5" value="d"> Show minimal interest.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>6. How often do you reflect on your own emotions?</legend>
+                <label><input type="radio" name="question_6" value="a" required> Frequently.</label><br>
+                <label><input type="radio" name="question_6" value="b"> Sometimes.</label><br>
+                <label><input type="radio" name="question_6" value="c"> Rarely.</label><br>
+                <label><input type="radio" name="question_6" value="d"> Never.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>7. How do you respond to someone else's anger?</legend>
+                <label><input type="radio" name="question_7" value="a" required> I try to understand their perspective.</label><br>
+                <label><input type="radio" name="question_7" value="b"> I get angry back.</label><br>
+                <label><input type="radio" name="question_7" value="c"> I walk away.</label><br>
+                <label><input type="radio" name="question_7" value="d"> I ignore it.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>8. Do you think emotions are important in decision-making?</legend>
+                <label><input type="radio" name="question_8" value="a" required> Yes, they are crucial.</label><br>
+                <label><input type="radio" name="question_8" value="b"> Sometimes, but not always.</label><br>
+                <label><input type="radio" name="question_8" value="c"> No, they should be ignored.</label><br>
+                <label><input type="radio" name="question_8" value="d"> It depends on the situation.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>9. When faced with a difficult conversation, you:</legend>
+                <label><input type="radio" name="question_9" value="a" required> Prepare myself mentally.</label><br>
+                <label><input type="radio" name="question_9" value="b"> Avoid it as long as possible.</label><br>
+                <label><input type="radio" name="question_9" value="c"> Confront it immediately.</label><br>
+                <label><input type="radio" name="question_9" value="d"> Ask someone else to handle it.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>10. How do you typically express your feelings?</legend>
+                <label><input type="radio" name="question_10" value="a" required> Openly and honestly.</label><br>
+                <label><input type="radio" name="question_10" value="b"> I keep them to myself.</label><br>
+                <label><input type="radio" name="question_10" value="c"> I express them indirectly.</label><br>
+                <label><input type="radio" name="question_10" value="d"> I express them through art or writing.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>11. When someone asks for help, you:</legend>
+                <label><input type="radio" name="question_11" value="a" required> Offer support willingly.</label><br>
+                <label><input type="radio" name="question_11" value="b"> Hesitate and think about it.</label><br>
+                <label><input type="radio" name="question_11" value="c"> Ignore their request.</label><br>
+                <label><input type="radio" name="question_11" value="d"> Offer only if I have time.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>12. How do you feel about teamwork?</legend>
+                <label><input type="radio" name="question_12" value="a" required> I thrive in team settings.</label><br>
+                <label><input type="radio" name="question_12" value="b"> I prefer to work alone.</label><br>
+                <label><input type="radio" name="question_12" value="c"> It depends on the team.</label><br>
+                <label><input type="radio" name="question_12" value="d"> I enjoy being a leader.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>13. How do you typically react to stress?</legend>
+                <label><input type="radio" name="question_13" value="a" required> I handle it well.</label><br>
+                <label><input type="radio" name="question_13" value="b"> I struggle a lot.</label><br>
+                <label><input type="radio" name="question_13" value="c"> I become anxious.</label><br>
+                <label><input type="radio" name="question_13" value="d"> I seek help from others.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>14. How comfortable are you with sharing your emotions?</legend>
+                <label><input type="radio" name="question_14" value="a" required> Very comfortable.</label><br>
+                <label><input type="radio" name="question_14" value="b"> Somewhat comfortable.</label><br>
+                <label><input type="radio" name="question_14" value="c"> Not very comfortable.</label><br>
+                <label><input type="radio" name="question_14" value="d"> Not comfortable at all.</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>15. Do you often put yourself in others' shoes?</legend>
+                <label><input type="radio" name="question_15" value="a" required> Yes, I often empathize.</label><br>
+                <label><input type="radio" name="question_15" value="b"> Sometimes.</label><br>
+                <label><input type="radio" name="question_15" value="c"> Rarely.</label><br>
+                <label><input type="radio" name="question_15" value="d"> Never.</label><br>
+            </fieldset>
+            <button type="button" onclick="calculateResult()">Submit</button>
+        </form>
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        function calculateResult() {
+            const answers = [
+                document.querySelector('input[name="question_1"]:checked').value,
+                document.querySelector('input[name="question_2"]:checked').value,
+                document.querySelector('input[name="question_3"]:checked').value,
+                document.querySelector('input[name="question_4"]:checked').value,
+                document.querySelector('input[name="question_5"]:checked').value,
+                document.querySelector('input[name="question_6"]:checked').value,
+                document.querySelector('input[name="question_7"]:checked').value,
+                document.querySelector('input[name="question_8"]:checked').value,
+                document.querySelector('input[name="question_9"]:checked').value,
+                document.querySelector('input[name="question_10"]:checked').value,
+                document.querySelector('input[name="question_11"]:checked').value,
+                document.querySelector('input[name="question_12"]:checked').value,
+                document.querySelector('input[name="question_13"]:checked').value,
+                document.querySelector('input[name="question_14"]:checked').value,
+                document.querySelector('input[name="question_15"]:checked').value,
+            ];
+
+            let score = 0;
+            answers.forEach(answer => {
+                if (answer === 'a') score += 4;
+                else if (answer === 'b') score += 3;
+                else if (answer === 'c') score += 2;
+                else if (answer === 'd') score += 1;
+            });
+
+            let resultText = "";
+            if (score >= 55) {
+                resultText = "You have a high emotional intelligence!";
+            } else if (score >= 40) {
+                resultText = "You have a moderate emotional intelligence.";
+            } else {
+                resultText = "You might want to work on your emotional intelligence.";
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+</html>

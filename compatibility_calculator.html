@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Compatibility Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 400px; margin: auto; text-align: center; }
+        input { margin: 10px; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Love Compatibility Calculator</h1>
+        <input type="text" id="name1" placeholder="Name 1" required>
+        <input type="text" id="name2" placeholder="Name 2" required>
+        <button onclick="calculateCompatibility()">Calculate Compatibility</button>
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        function calculateCompatibility() {
+            const name1 = document.getElementById('name1').value;
+            const name2 = document.getElementById('name2').value;
+
+            // Generate a random compatibility score
+            const compatibilityScore = Math.floor(Math.random() * 101);
+
+            // Display the result
+            document.getElementById('result').innerText = `${name1} and ${name2} have a compatibility of ${compatibilityScore}%!`;
+        }
+    </script>
+</body>
+</html>

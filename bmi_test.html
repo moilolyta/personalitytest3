@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Your BMI?</title>
+</head>
+<body>
+    <h1>What's Your BMI?</h1>
+    <form id="bmi-form" onsubmit="calculateBMI(event)">
+        <fieldset>
+            <legend>Your height (cm):</legend>
+            <input type="number" name="height" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Your weight (kg):</legend>
+            <input type="number" name="weight" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Your age:</legend>
+            <input type="number" name="age" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Your gender:</legend>
+            <select name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Do you exercise regularly?</legend>
+            <select name="exercise" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </fieldset>
+
+        <button type="submit">Calculate BMI</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateBMI(event) {
+            event.preventDefault();
+            const form = event.target;
+            const height = form.height.value / 100; // Convert cm to meters
+            const weight = form.weight.value;
+            const bmi = (weight / (height * height)).toFixed(2);
+            let category;
+
+            if (bmi < 18.5) {
+                category = "Underweight";
+            } else if (bmi < 24.9) {
+                category = "Normal weight";
+            } else if (bmi < 29.9) {
+                category = "Overweight";
+            } else {
+                category = "Obesity";
+            }
+
+            document.getElementById('result').innerHTML = `<h2>Your BMI is: <strong>${bmi}</strong></h2><p>Category: ${category}</p>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Color Palette</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <h1>What is Your Color Palette?</h1>
+    <form id="quiz-form" action="/resultsarm.html" method="GET">
+        <fieldset>
+            <legend>What color are your eyes?</legend>
+            <label><input type="radio" name="question_1" value="a" required> Blue</label><br>
+            <label><input type="radio" name="question_1" value="b"> Green</label><br>
+            <label><input type="radio" name="question_1" value="c"> Brown</label><br>
+            <label><input type="radio" name="question_1" value="d"> Hazel</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What is your hair color?</legend>
+            <label><input type="radio" name="question_2" value="a" required> Blonde</label><br>
+            <label><input type="radio" name="question_2" value="b"> Light Brown</label><br>
+            <label><input type="radio" name="question_2" value="c"> Dark Brown</label><br>
+            <label><input type="radio" name="question_2" value="d"> Black</label><br>
+            <label><input type="radio" name="question_2" value="e"> Red</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What is your skin tone?</legend>
+            <label><input type="radio" name="question_3" value="a" required> Fair</label><br>
+            <label><input type="radio" name="question_3" value="b"> Medium</label><br>
+            <label><input type="radio" name="question_3" value="c"> Olive</label><br>
+            <label><input type="radio" name="question_3" value="d"> Dark</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Do you tan easily?</legend>
+            <label><input type="radio" name="question_4" value="a" required> Yes, very easily</label><br>
+            <label><input type="radio" name="question_4" value="b"> Yes, somewhat</label><br>
+            <label><input type="radio" name="question_4" value="c"> No, I burn</label><br>
+            <label><input type="radio" name="question_4" value="d"> I don't tan or burn</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What jewelry do you prefer?</legend>
+            <label><input type="radio" name="question_5" value="a" required> Gold</label><br>
+            <label><input type="radio" name="question_5" value="b"> Silver</label><br>
+            <label><input type="radio" name="question_5" value="c"> Both</label><br>
+            <label><input type="radio" name="question_5" value="d"> Neither</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What color looks best on you?</legend>
+            <label><input type="radio" name="question_6" value="a" required> Warm colors (reds, oranges)</label><br>
+            <label><input type="radio" name="question_6" value="b"> Cool colors (blues, greens)</label><br>
+            <label><input type="radio" name="question_6" value="c"> Neutrals (black, white, gray)</label><br>
+            <label><input type="radio" name="question_6" value="d"> Bright colors</label>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+

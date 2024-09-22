@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Breaking Bad Character Result</title>
+</head>
+<body>
+    <h1>Your Breaking Bad Character</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scores = { 'Walter White': 0, 'Jesse Pinkman': 0, 'Saul Goodman': 0, 'Hank Schrader': 0 };
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = urlParams.get(`question_${i}`);
+                if (answer) {
+                    switch (answer) {
+                        case 'a':
+                            scores['Walter White']++;
+                            break;
+                        case 'b':
+                            scores['Jesse Pinkman']++;
+                            break;
+                        case 'c':
+                            scores['Saul Goodman']++;
+                            break;
+                        case 'd':
+                            scores['Hank Schrader']++;
+                            break;
+                    }
+                }
+            }
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const description = getDescription(result);
+            document.getElementById('result').innerHTML = `<h1>You are: <strong>${result}</strong></h1><p>${description}</p>`;
+        });
+
+        function getDescription(character) {
+            const descriptions = {
+                'Walter White': "You're the mastermind behind the operation, driven and ambitious.",
+                'Jesse Pinkman': "You're the loyal friend, often finding yourself in tough situations.",
+                'Saul Goodman': "You're the clever strategist, always looking for an angle.",
+                'Hank Schrader': "You're the tough, determined fighter, dedicated to doing what's right."
+            };
+            return descriptions[character];
+        }
+    </script>
+</body>
+</html>

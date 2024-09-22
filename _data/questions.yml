@@ -1,0 +1,100 @@
+
+# Domande e risposte del test
+questions:
+  - question: "What's your favorite way to spend a weekend?"
+    id: 1
+    choices:
+      - ["a", "Relaxing at home", 1]
+      - ["b", "Going out with friends", 2]
+      - ["c", "Exploring new places", 3]
+      - ["d", "Working on personal projects", 4]
+
+  - question: "How do you handle conflicts?"
+    id: 2
+    choices:
+      - ["a", "I try to avoid them", 1]
+      - ["b", "I confront them directly", 4]
+      - ["c", "I seek compromise", 2]
+      - ["d", "I let them resolve on their own", 3]
+
+  - question: "What's your ideal job?"
+    id: 3
+    choices:
+      - ["a", "Creative artist", 3]
+      - ["b", "Social worker", 2]
+      - ["c", "Travel blogger", 4]
+      - ["d", "Entrepreneur", 1]
+
+  - question: "How do you react to stress?"
+    id: 4
+    choices:
+      - ["a", "I take a break and relax", 1]
+      - ["b", "I talk it out with someone", 2]
+      - ["c", "I exercise to release it", 4]
+      - ["d", "I work harder to overcome it", 3]
+
+  - question: "What kind of movies do you like?"
+    id: 5
+    choices:
+      - ["a", "Romantic comedies", 2]
+      - ["b", "Dramas", 1]
+      - ["c", "Adventure films", 4]
+      - ["d", "Documentaries", 3]
+
+  - question: "What's your approach to friendships?"
+    id: 6
+    choices:
+      - ["a", "I have a few close friends", 1]
+      - ["b", "I enjoy having a large social circle", 2]
+      - ["c", "I value deep and meaningful connections", 3]
+      - ["d", "I keep my friends at a distance", 4]
+
+  - question: "How do you like to relax?"
+    id: 7
+    choices:
+      - ["a", "Reading a book", 1]
+      - ["b", "Hanging out with friends", 2]
+      - ["c", "Going for a walk in nature", 3]
+      - ["d", "Working on a hobby", 4]
+
+  - question: "What's your ideal vacation?"
+    id: 8
+    choices:
+      - ["a", "A quiet cabin in the woods", 1]
+      - ["b", "A bustling city adventure", 3]
+      - ["c", "A tropical beach resort", 2]
+      - ["d", "A cultural exploration trip", 4]
+
+  - question: "How do you make decisions?"
+    id: 9
+    choices:
+      - ["a", "I rely on my intuition", 3]
+      - ["b", "I analyze the pros and cons", 2]
+      - ["c", "I seek advice from others", 1]
+      - ["d", "I make quick, spontaneous choices", 4]
+
+  - question: "How do you handle change?"
+    id: 10
+    choices:
+      - ["a", "I adapt easily", 4]
+      - ["b", "I struggle but eventually adjust", 2]
+      - ["c", "I try to control it", 1]
+      - ["d", "I resist it as much as possible", 3]
+
+# Personaggi basati sul punteggio totale
+characters:
+  - name: "Frank Gallagher"
+    description: "You are Frank Gallagher, chaotic but charming. You live by your own rules and often find yourself in trouble."
+    score_range: [10, 19]
+
+  - name: "Fiona Gallagher"
+    description: "You are Fiona Gallagher, the responsible and caring person who puts family first, even at great personal cost."
+    score_range: [20, 29]
+
+  - name: "Lip Gallagher"
+    description: "You are Lip Gallagher, smart and resourceful, but you struggle with responsibility and your rebellious nature."
+    score_range: [30, 39]
+
+  - name: "Ian Gallagher"
+    description: "You are Ian Gallagher, passionate and determined, but sometimes your emotions get the better of you."
+    score_range: [40, 50]
