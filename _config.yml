@@ -1,7 +1,7 @@
-title: Personality Test
+title: Personality Quiz
 email: your-email@example.com
 description: >- 
-  Choose a category of tests to find out which character you are most like!
+  Choose a quiz category to find out which character you are most like!
 baseurl: ""  # Usa una stringa vuota per il dominio principale
 url: "https://moilolyta.github.io"  # Sostituisci 'username' con il tuo nome utente
 twitter_username: your_twitter_username  # Modifica se necessario
